@@ -1,0 +1,67 @@
+<div class="container">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Add User</button>
+          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">User List</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+            <form [formGroup]="userForm" (ngSubmit)="SubmitForm()">
+                <div class="row d-flex">
+                    <div class="mb-3 col-md-6">
+                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="Name" formControlName="Name" id="exampleInputEmail1" placeholder="Enter Name">
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="exampleInputPassword1" class="form-label">Mobile No.</label>
+                        <input type="text" class="form-control" name="Mobile" formControlName="Mobile" id="exampleInputPassword1" placeholder="Enter Number">
+                    </div>
+                </div>
+                <div class="row d-flex">
+                    <div class="mb-3 col-md-6">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="Email" formControlName="Email" id="exampleInputEmail1" placeholder="Enter Email">
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="exampleInputPassword1" class="form-label">Age</label>
+                        <input type="number" class="form-control" name="Age" formControlName="Age" id="exampleInputPassword1" placeholder="Enter Age">
+                    </div>
+                </div>
+                <div class="row mt-2 d-flex btns">
+                    <button type="submit" class="btn ml-1 mr-1 btn-primary">Add</button>
+                    <button type="reset" class="btn ml-1 mr-1 btn-secondary">Reset</button>
+                </div>   
+            </form>
+              
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users, index as i">
+                    <th scope="row">{{user.id}}</th>
+                    <td>{{user.Name}}</td>
+                    <td>{{user.Email}}</td>
+                    <td>{{user.Mobile}}</td>
+                    <td>{{user.Age}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)="GetUserById(user.id)" >Edit</button>
+                        <button type="button" class="btn btn-danger" (click)="DeleteUserById(user.id)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+              
+        </div>
+    </div>
+</div>

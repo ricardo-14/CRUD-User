@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "Email": "senhor.pestana@gmail.com",
+      "Name": "João Pestana",
+      "Mobile": "(47) 9 9870 - 8876",
+      "Age": 25
+    },
+    {
+      "Name": "Ricardo",
+      "Email": "ricardo@gmail.com",
+      "Mobile": "9999 9999",
+      "Age": 34,
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
